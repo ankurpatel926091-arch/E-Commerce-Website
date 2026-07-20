@@ -1,0 +1,313 @@
+/* =========================
+   NAVBAR
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.navbar{
+    width:100%;
+    height:75px;
+    background:#ffffff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 6%;
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+/* Logo */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#2563eb;
+    font-size:28px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.logo svg{
+    font-size:30px;
+}
+
+/* Menu */
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:35px;
+    align-items:center;
+}
+
+.nav-links li{
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#2563eb;
+}
+
+/* Right */
+
+.right-section{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+/* Cart */
+
+.cart{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.badge{
+    position:absolute;
+    top:-8px;
+    right:-10px;
+    width:20px;
+    height:20px;
+    background:red;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:11px;
+}
+
+/* User */
+
+.user{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:600;
+}
+
+.user-icon{
+    font-size:28px;
+    color:#2563eb;
+}
+
+/* Buttons */
+
+.login-btn,
+.logout-btn{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    padding:10px 18px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:600;
+}
+
+.login-btn{
+
+    background:#2563eb;
+}
+
+.logout-btn{
+
+    background:#ef4444;
+}
+
+.login-btn:hover{
+
+    background:#1d4ed8;
+}
+
+.logout-btn:hover{
+
+    background:#dc2626;
+}
+
+/* Mobile Icon */
+
+.menu-icon{
+
+    display:none;
+
+    font-size:28px;
+
+    color:#2563eb;
+
+    cursor:pointer;
+}
+
+/* Mobile Only */
+
+.mobile-only{
+
+    display:none;
+}
+
+.user-mobile{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    font-weight:600;
+}
+
+/* ===========================
+        Tablet
+=========================== */
+
+@media(max-width:992px){
+
+.navbar{
+
+    padding:15px 30px;
+}
+
+.nav-links{
+
+    gap:20px;
+}
+
+}
+
+
+/* ===========================
+        Mobile
+=========================== */
+
+@media(max-width:768px){
+
+.navbar{
+
+    height:75px;
+
+    padding:0 20px;
+
+    position:relative;
+}
+
+.menu-icon{
+
+    display:block;
+}
+
+/* Hide Desktop */
+
+.right-section{
+
+    display:none;
+}
+
+/* Menu */
+
+.nav-links{
+
+    position:absolute;
+
+    top:75px;
+
+    left:-100%;
+
+    width:100%;
+
+    background:#fff;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:30px 0;
+
+    transition:.4s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.nav-links.active{
+
+    left:0;
+}
+
+.mobile-only{
+
+    display:flex;
+
+    justify-content:center;
+
+    width:100%;
+}
+
+.mobile-only .cart{
+
+    justify-content:center;
+}
+
+.mobile-only .logout-btn,
+.mobile-only .login-btn{
+
+    width:220px;
+}
+
+}
+
+
+/* ===========================
+      Small Phone
+=========================== */
+
+@media(max-width:480px){
+
+.logo{
+
+    font-size:22px;
+}
+
+.logo svg{
+
+    font-size:24px;
+}
+
+.menu-icon{
+
+    font-size:25px;
+}
+
+}

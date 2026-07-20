@@ -4,6 +4,9 @@ import { fetchCategory, fetchProduct } from "../Redux/StoreDataSlice";
 import "../App.css";
 import { useCart } from "../Context/CartContext";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+
 
 const Product = () => {
   const [customerName,setCustomerName] = useState('')
@@ -72,82 +75,255 @@ const Product = () => {
       alert('Unable to add to cart')
     }
   }
+return (
+  <div className="container">
 
-  return (
-    <div className="container"> 
-      <header className="hero">
-        <h1>Welcome {customerName}</h1>
-        <h1>🛍️ ONLINE Store</h1>
-        <p>Explore Categories & Products</p>
-       {user ? (
-          <>
-            <button className="login-btn" onClick={() => navigate('/cart')}>Go to Cart</button>
-            <button className="login-btn" onClick={() => localStorage.clear()}>Logout</button>
-          </>
-        ) : (
-          <button className="login-btn" onClick={() => navigate('/login')}>Login</button>
-        )}
-       
-        
-      </header>
+    {/* Navbar */}
+    <Navbar />
 
-      {/* Categories */}
-      <section className="section">
-        <div className="sectionHeader">
-          <h2>Categories</h2>
-        </div>
+    {/* Hero */}
+    {/* ================= HERO SECTION ================= */}
 
-        <div className="categoryContainer">
-          {categoryData?.map((item) => (
-            <div className="categoryCard" key={item._id}>
-              
-              <img
-                src={getImageUrl(item.image)}
-                alt={item.categoryName}
-                className="categoryImage"
-              />
-              <h4>
-                <button key={item._id} onClick={()=>setSelectedCategory(item._id)}>{item.categoryName}</button>
-              </h4>
-            </div>
-          ))}
-        </div>
-      </section>
+<header className="hero">
 
-      {/* Products */}
-      <section className="section">
-        <div className="sectionHeader">
-          <h2>Products</h2>
-        </div>
+  <div className="hero-content">
 
-        <div className="productContainer">
-          {filterData?.map((item) => (
-            <div className="productCard" key={item._id}>
-              <div className="imageWrapper">
-                <img
-                  src={getImageUrl(item.images?.[0])}
-                  alt={item.productName}
-                  className="productImage"
-                />
-              </div>
+    <span className="hero-tag">
+      🛒 India's Trusted Online Shopping Store
+    </span>
 
-              <div className="productInfo">
-                <h3>{item.productName}</h3>
+    <h3 className="welcome-text">
+      Welcome, <span>{customerName}</span> 👋
+    </h3>
 
-                <p className="price">
-                  ₹{item.price?.toLocaleString()}
-                </p>
+    <h1>
+      Discover Amazing
+      <br />
+      Products at
+      <span className="highlight"> Best Prices</span>
+    </h1>
 
-                <button className="buyBtn" onClick={()=>handleAddToCart(item)}>
-                  Add To Cart
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+    <p>
+      Shop from hundreds of quality products with secure
+      payment, fast delivery and the best shopping
+      experience.
+    </p>
+
+    <div className="hero-buttons">
+
+      {user ? (
+        <>
+          <button
+            className="primary-btn"
+            onClick={() => navigate("/cart")}
+          >
+            🛒 Go To Cart
+          </button>
+
+          <button
+            className="secondary-btn"
+            onClick={() => {
+              localStorage.clear();
+              navigate("/login");
+            }}
+          >
+            Logout
+          </button>
+        </>
+      ) : (
+        <button
+          className="primary-btn"
+          onClick={() => navigate("/login")}
+        >
+          Login Now
+        </button>
+      )}
+
     </div>
-  );
+
+    {/* Stats */}
+
+    <div className="hero-stats">
+
+      <div className="stat-box">
+        <h2>500+</h2>
+        <p>Products</p>
+      </div>
+
+      <div className="stat-box">
+        <h2>100+</h2>
+        <p>Categories</p>
+      </div>
+
+      <div className="stat-box">
+        <h2>1000+</h2>
+        <p>Happy Customers</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+    {/* Categories */}
+    {/* ================= CATEGORIES ================= */}
+
+<section className="section" id="categories">
+
+  <div className="sectionHeader">
+
+    <span className="section-subtitle">
+      Browse Collection
+    </span>
+
+    <h2>Shop By Categories</h2>
+
+    <p>
+      Choose your favorite category and discover amazing products.
+    </p>
+
+  </div>
+
+  <div className="categoryContainer">
+
+    {categoryData?.map((item) => (
+
+      <div
+        className="categoryCard"
+        key={item._id}
+        onClick={() => setSelectedCategory(item._id)}
+      >
+
+        <div className="categoryImageBox">
+
+          <img
+            src={getImageUrl(item.image)}
+            alt={item.categoryName}
+            className="categoryImage"
+          />
+
+        </div>
+
+        <div className="categoryContent">
+
+          <h3>{item.categoryName}</h3>
+
+          <p>
+            Explore the best collection of {item.categoryName}.
+          </p>
+
+          <button className="categoryBtn">
+            View Products →
+          </button>
+
+        </div>
+
+      </div>
+
+    ))}
+
+  </div>
+
+</section>
+
+    {/* Products */}
+    {/* ================= PRODUCTS ================= */}
+
+<section className="section" id="products">
+
+  <div className="sectionHeader">
+
+    <span className="section-subtitle">
+      Trending Collection
+    </span>
+
+    <h2>Featured Products</h2>
+
+    <p>
+      Discover our latest and most popular products at affordable prices.
+    </p>
+
+  </div>
+
+  <div className="productContainer">
+
+    {filterData?.map((item) => (
+
+      <div className="productCard" key={item._id}>
+
+        {/* Product Image */}
+
+        <div className="imageWrapper">
+
+          <img
+            src={getImageUrl(item.images?.[0])}
+            alt={item.productName}
+            className="productImage"
+          />
+
+          <span className="productBadge">
+            New
+          </span>
+
+        </div>
+
+        {/* Product Details */}
+
+        <div className="productInfo">
+
+          <span className="productCategory">
+            {item.category?.categoryName || "Category"}
+          </span>
+
+          <h3>
+            {item.productName}
+          </h3>
+
+          <div className="rating">
+
+            ⭐⭐⭐⭐⭐
+
+            <span>(5.0)</span>
+
+          </div>
+
+          <p className="price">
+            ₹{item.price?.toLocaleString()}
+          </p>
+
+          <div className="productButtons">
+
+            <button
+              className="buyBtn"
+              onClick={() => handleAddToCart(item)}
+            >
+              🛒 Add To Cart
+            </button>
+
+            <button
+              className="viewBtn"
+              onClick={() => navigate("/cart")}
+            >
+              View Cart
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    ))}
+
+  </div>
+
+</section>
+    <Footer />
+
+  </div>
+);
+
 };
 
 export default Product;

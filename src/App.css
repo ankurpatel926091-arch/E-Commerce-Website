@@ -199,3 +199,1221 @@ body {
   border-radius: 10px;
   cursor: pointer;
 }
+/* ===========================================
+        GLOBAL THEME
+=========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:
+    linear-gradient(135deg,#f8fafc,#eef4ff,#f8fbff);
+
+    color:#1e293b;
+
+    overflow-x:hidden;
+}
+
+/* Main Container */
+
+.container{
+
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle at top right,#dbeafe 0%,transparent 28%),
+    radial-gradient(circle at bottom left,#e0e7ff 0%,transparent 30%);
+
+}
+
+/* ===========================================
+              HERO SECTION
+=========================================== */
+
+.hero{
+
+    width:92%;
+
+    max-width:1250px;
+
+    margin:45px auto;
+
+    padding:70px 30px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(135deg,
+    rgba(255,255,255,.88),
+    rgba(255,255,255,.72));
+
+    backdrop-filter:blur(16px);
+
+    box-shadow:
+    0 15px 45px rgba(37,99,235,.12);
+
+    border:1px solid rgba(255,255,255,.55);
+
+}
+
+/* Welcome */
+
+.hero h1:first-child{
+
+    font-size:20px;
+
+    color:#2563eb;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+/* Store Title */
+
+.hero h1:nth-child(2){
+
+    font-size:60px;
+
+    font-weight:800;
+
+    color:#0f172a;
+
+    margin-bottom:20px;
+
+    letter-spacing:1px;
+
+}
+
+/* Subtitle */
+
+.hero p{
+
+    font-size:20px;
+
+    color:#64748b;
+
+    margin-bottom:35px;
+
+}
+
+/* Buttons */
+
+.hero .login-btn{
+
+    padding:14px 30px;
+
+    margin:8px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.hero .login-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 30px rgba(37,99,235,.28);
+
+}
+
+/* ===========================================
+        SECTION HEADING
+=========================================== */
+
+.section{
+
+    width:92%;
+
+    max-width:1250px;
+
+    margin:70px auto;
+
+}
+
+.sectionHeader{
+
+    margin-bottom:35px;
+
+}
+
+.sectionHeader h2{
+
+    font-size:38px;
+
+    color:#0f172a;
+
+    font-weight:700;
+
+    position:relative;
+
+    display:inline-block;
+
+}
+
+.sectionHeader h2::after{
+
+    content:"";
+
+    width:65px;
+
+    height:5px;
+
+    border-radius:50px;
+
+    background:#2563eb;
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-10px;
+
+}
+/* ===========================================
+            CATEGORY SECTION
+=========================================== */
+
+.categoryContainer{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:30px;
+
+}
+
+/* Card */
+
+.categoryCard{
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    padding:20px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    box-shadow:
+    0 8px 30px rgba(15,23,42,.08);
+
+    border:1px solid #eef2f7;
+
+}
+
+.categoryCard:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 20px 45px rgba(37,99,235,.15);
+
+    border-color:#3b82f6;
+
+}
+
+/* Image */
+
+.categoryImage{
+
+    width:100%;
+
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:16px;
+
+    transition:.4s;
+
+}
+
+.categoryCard:hover .categoryImage{
+
+    transform:scale(1.08);
+
+}
+
+/* Button */
+
+.categoryCard h4{
+
+    margin-top:20px;
+
+}
+
+.categoryCard button{
+
+    border:none;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    padding:12px 28px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.categoryCard button:hover{
+
+    background:#1d4ed8;
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 10px 25px rgba(37,99,235,.25);
+
+}
+
+/* Active Effect */
+
+.categoryCard:active{
+
+    transform:scale(.98);
+
+}
+
+/* ===============================
+        Mobile Responsive
+================================ */
+
+@media(max-width:768px){
+
+.categoryContainer{
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.categoryCard{
+
+    padding:15px;
+
+}
+
+.categoryImage{
+
+    height:140px;
+
+}
+
+.categoryCard button{
+
+    width:100%;
+
+    padding:10px;
+
+    font-size:15px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.categoryContainer{
+
+    grid-template-columns:1fr;
+
+}
+
+.categoryImage{
+
+    height:200px;
+
+}
+
+}
+/* ===========================================
+            PRODUCT SECTION
+=========================================== */
+
+.productContainer{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+
+    gap:35px;
+
+}
+
+/* Product Card */
+
+.productCard{
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+    border:1px solid #eef2f7;
+
+    box-shadow:0 8px 30px rgba(15,23,42,.08);
+
+}
+
+.productCard:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(37,99,235,.18);
+
+}
+
+/* Image Wrapper */
+
+.imageWrapper{
+
+    width:100%;
+
+    height:260px;
+
+    overflow:hidden;
+
+    background:#f8fafc;
+
+}
+
+/* Product Image */
+
+.productImage{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.productCard:hover .productImage{
+
+    transform:scale(1.08);
+
+}
+
+/* Product Info */
+
+.productInfo{
+
+    padding:22px;
+
+    text-align:center;
+
+}
+
+.productInfo h3{
+
+    font-size:22px;
+
+    color:#0f172a;
+
+    margin-bottom:15px;
+
+    min-height:55px;
+
+}
+
+/* Price */
+
+.price{
+
+    font-size:24px;
+
+    color:#2563eb;
+
+    font-weight:700;
+
+    margin-bottom:22px;
+
+}
+
+/* Button */
+
+.buyBtn{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.buyBtn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 30px rgba(37,99,235,.28);
+
+}
+
+/* ===========================
+        Tablet
+=========================== */
+
+@media(max-width:992px){
+
+.productContainer{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.imageWrapper{
+
+    height:220px;
+
+}
+
+}
+
+/* ===========================
+        Mobile
+=========================== */
+
+@media(max-width:768px){
+
+.productContainer{
+
+    grid-template-columns:1fr;
+
+    gap:25px;
+
+}
+
+.productInfo{
+
+    padding:18px;
+
+}
+
+.productInfo h3{
+
+    font-size:20px;
+
+}
+
+.price{
+
+    font-size:22px;
+
+}
+
+.buyBtn{
+
+    padding:13px;
+
+}
+
+}
+
+/* ===========================
+      Small Phone
+=========================== */
+
+@media(max-width:480px){
+
+.imageWrapper{
+
+    height:200px;
+
+}
+
+.productInfo h3{
+
+    font-size:18px;
+
+}
+
+.price{
+
+    font-size:20px;
+
+}
+
+}
+/* ===========================================
+        PREMIUM BACKGROUND EFFECTS
+=========================================== */
+
+body{
+
+    background:
+    linear-gradient(135deg,#f8fbff,#eef4ff,#ffffff);
+
+    background-attachment:fixed;
+
+}
+
+/* Floating Background */
+
+.container{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.container::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:380px;
+
+    height:380px;
+
+    background:rgba(37,99,235,.08);
+
+    border-radius:50%;
+
+    top:-150px;
+
+    right:-150px;
+
+    filter:blur(70px);
+
+    z-index:0;
+
+}
+
+.container::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:320px;
+
+    height:320px;
+
+    background:rgba(99,102,241,.08);
+
+    border-radius:50%;
+
+    bottom:-120px;
+
+    left:-120px;
+
+    filter:blur(70px);
+
+    z-index:0;
+
+}
+
+/* All Sections */
+
+.hero,
+.section,
+.footer{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ===========================================
+        CARD ANIMATIONS
+=========================================== */
+
+.categoryCard,
+.productCard{
+
+    animation:fadeUp .7s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================================
+        BUTTON EFFECTS
+=========================================== */
+
+.buyBtn,
+.login-btn,
+.categoryCard button{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.buyBtn::before,
+.login-btn::before,
+.categoryCard button::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(255,255,255,.25);
+
+    transition:.5s;
+
+}
+
+.buyBtn:hover::before,
+.login-btn:hover::before,
+.categoryCard button:hover::before{
+
+    left:100%;
+
+}
+
+/* ===========================================
+        IMAGE EFFECT
+=========================================== */
+
+.categoryImage,
+.productImage{
+
+    transition:.5s;
+
+}
+
+.categoryCard:hover .categoryImage,
+.productCard:hover .productImage{
+
+    transform:scale(1.08);
+
+}
+
+/* ===========================================
+        SMOOTH SCROLL
+=========================================== */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/* ===========================================
+        SCROLLBAR
+=========================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#edf2f7;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#3b82f6;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#2563eb;
+
+}
+
+/* ===========================================
+        MOBILE FIXES
+=========================================== */
+
+@media(max-width:768px){
+
+.hero{
+
+    padding:45px 20px;
+
+}
+
+.hero h1:nth-child(2){
+
+    font-size:38px;
+
+}
+
+.hero p{
+
+    font-size:16px;
+
+}
+
+.section{
+
+    margin:45px auto;
+
+}
+
+.sectionHeader h2{
+
+    font-size:30px;
+
+}
+
+.container::before,
+.container::after{
+
+    display:none;
+
+}
+
+}
+
+/* ===========================================
+        EXTRA SMALL DEVICE
+=========================================== */
+
+@media(max-width:480px){
+
+.hero{
+
+    width:95%;
+
+    padding:35px 15px;
+
+}
+
+.hero h1:first-child{
+
+    font-size:18px;
+
+}
+
+.hero h1:nth-child(2){
+
+    font-size:30px;
+
+}
+
+.hero p{
+
+    font-size:15px;
+
+}
+
+.sectionHeader h2{
+
+    font-size:26px;
+
+}
+
+.buyBtn,
+.login-btn{
+
+    font-size:15px;
+
+}
+
+}
+/* ===========================================
+        NEW HERO STYLES
+=========================================== */
+
+.hero-content{
+    max-width:900px;
+    margin:auto;
+}
+
+.hero-tag{
+    display:inline-block;
+    background:#dbeafe;
+    color:#2563eb;
+    padding:10px 22px;
+    border-radius:30px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.welcome-text{
+    font-size:22px;
+    margin:15px 0;
+    color:#475569;
+}
+
+.welcome-text span{
+    color:#2563eb;
+    font-weight:700;
+}
+
+.highlight{
+    color:#2563eb;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+
+    border:none;
+    padding:14px 28px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.35s;
+
+}
+
+.primary-btn{
+
+    background:#2563eb;
+    color:#fff;
+
+}
+
+.secondary-btn{
+
+    background:#ef4444;
+    color:#fff;
+
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.secondary-btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.hero-stats{
+
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-top:50px;
+    flex-wrap:wrap;
+
+}
+
+.stat-box{
+
+    width:180px;
+    background:#fff;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.stat-box h2{
+
+    color:#2563eb;
+    font-size:32px;
+
+}
+
+.stat-box p{
+
+    margin-top:8px;
+    color:#64748b;
+
+}
+
+/* ===========================================
+        SECTION SUBTITLE
+=========================================== */
+
+.section-subtitle{
+
+    display:inline-block;
+    color:#2563eb;
+    background:#dbeafe;
+    padding:8px 18px;
+    border-radius:30px;
+    font-weight:600;
+    margin-bottom:15px;
+
+}
+
+.sectionHeader p{
+
+    margin-top:15px;
+    color:#64748b;
+    font-size:17px;
+
+}
+
+/* ===========================================
+        CATEGORY
+=========================================== */
+
+.categoryImageBox{
+
+    overflow:hidden;
+    border-radius:18px;
+
+}
+
+.categoryContent{
+
+    padding-top:18px;
+
+}
+
+.categoryContent h3{
+
+    font-size:22px;
+    margin-bottom:12px;
+
+}
+
+.categoryContent p{
+
+    color:#64748b;
+    margin-bottom:20px;
+
+}
+
+.categoryBtn{
+
+    border:none;
+    background:#2563eb;
+    color:#fff;
+    padding:12px 24px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.categoryBtn:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* ===========================================
+        PRODUCT
+=========================================== */
+
+.productBadge{
+
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:#2563eb;
+    color:#fff;
+    padding:6px 15px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+
+}
+
+.imageWrapper{
+
+    position:relative;
+
+}
+
+.productCategory{
+
+    color:#2563eb;
+    font-weight:600;
+    display:block;
+    margin-bottom:10px;
+
+}
+
+.rating{
+
+    color:#f59e0b;
+    margin:12px 0;
+    font-size:16px;
+
+}
+
+.rating span{
+
+    color:#64748b;
+    margin-left:8px;
+
+}
+
+.productButtons{
+
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+
+}
+
+.viewBtn{
+
+    flex:1;
+    border:none;
+    background:#0f172a;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.viewBtn:hover{
+
+    background:#1e293b;
+
+}
+
+.buyBtn{
+
+    flex:2;
+
+}
+
+/* ===========================================
+        RESPONSIVE
+=========================================== */
+
+@media(max-width:768px){
+
+.hero h1{
+
+    font-size:38px;
+
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+    width:100%;
+
+}
+
+.productButtons{
+
+    flex-direction:column;
+
+}
+
+.stat-box{
+
+    width:100%;
+
+}
+
+}
