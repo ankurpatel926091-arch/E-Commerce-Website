@@ -20,6 +20,17 @@
     position:sticky;
     top:0;
     z-index:1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    /* Tumhara existing background */
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    background: #9bc9fb;
+    
 }
 
 /* Logo */
