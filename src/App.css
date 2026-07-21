@@ -52,11 +52,14 @@ body {
 
 /* Categories */
 
-.categoryContainer {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  padding-bottom: 10px;
+.categoryContainer{
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 0 20px;
+    scroll-behavior: smooth;
+    white-space: nowrap;
 }
 
 .categoryContainer::-webkit-scrollbar {
@@ -77,6 +80,25 @@ body {
   cursor: pointer;
   transition: 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+   flex: 0 0 220px;
+  
+}
+.categoryContainer::-webkit-scrollbar{
+    height:8px;
+}
+
+.categoryContainer::-webkit-scrollbar-track{
+    background:#e9eefc;
+    border-radius:20px;
+}
+
+.categoryContainer::-webkit-scrollbar-thumb{
+    background:#497cec;
+    border-radius:20px;
+}
+
+.categoryContainer::-webkit-scrollbar-thumb:hover{
+    background:#1d4ed8;
 }
 
 .categoryCard:hover {
@@ -88,6 +110,10 @@ body {
   height: 130px;
   object-fit: cover;
   border-radius: 12px;
+  width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background: #fff;
 }
 
 .categoryCard h4 {
@@ -101,6 +127,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 25px;
+  
 }
 
 /* Product Card */
@@ -111,6 +138,7 @@ body {
   overflow: hidden;
   transition: all 0.3s ease;
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  
 }
 
 .productCard:hover {
@@ -122,15 +150,17 @@ body {
   width: 100%;
   height: 260px;
   overflow: hidden;
+  
 }
 
 .productImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: 0.4s;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: 0.4s;
+    background: #fff;
+    padding: 10px;
 }
-
 .productCard:hover .productImage {
   transform: scale(1.08);
 }
@@ -404,14 +434,14 @@ body{
             CATEGORY SECTION
 =========================================== */
 
-.categoryContainer{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-    gap:30px;
-
+.categoryContainer {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    padding: 10px 5px 20px;
+    white-space: nowrap;
 }
 
 /* Card */
