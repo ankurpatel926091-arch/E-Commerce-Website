@@ -19,7 +19,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { cart } = useCart();
   const { search, setSearch } = useSearch();
-  console.log(search);
+  
 
   const [menuOpen, setMenuOpen] = useState(false);
  

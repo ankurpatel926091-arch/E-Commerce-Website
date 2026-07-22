@@ -42,10 +42,8 @@ const Product = () => {
     (state) => state.storeData.products
   );
 
-  productData.forEach((item) => {
-  console.log(item.productName);
-});
-  console.log("Product Data =", productData);
+  
+ 
   
 
 
