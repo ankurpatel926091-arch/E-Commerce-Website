@@ -6,12 +6,14 @@ import { useCart } from "../Context/CartContext";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import { useSearch } from "../Context/SearchContext";
 
 
 const Product = () => {
   const [customerName,setCustomerName] = useState('')
   const dispatch = useDispatch();
   const navigate = useNavigate()
+  const { search } = useSearch();
   const [selectedCategory,setSelectedCategory] = useState('')
   const categoryData = useSelector(
     (state) => state.storeData.category
@@ -40,6 +42,12 @@ const Product = () => {
     (state) => state.storeData.products
   );
 
+  productData.forEach((item) => {
+  console.log(item.productName);
+});
+  console.log("Product Data =", productData);
+  
+
 
   const user = JSON.parse(localStorage.getItem('user'))
   useEffect(()=>{
@@ -59,9 +67,21 @@ const Product = () => {
   }, [dispatch]);
 
 
-  const filterData = selectedCategory
-    ? productData.filter((item) => item.category?._id === selectedCategory)
-    : productData
+ const filterData = productData.filter((item) => {
+
+  const matchCategory =
+    !selectedCategory ||
+    item.category?._id === selectedCategory;
+
+  const matchSearch =
+    item.productName
+      ?.toLowerCase()
+      .includes(search.toLowerCase());
+
+  return matchCategory && matchSearch;
+
+});
+
 
 
   const {addToCart} = useCart()
@@ -315,6 +335,12 @@ return (
       </div>
 
     ))}
+     {filterData.length === 0 && (
+    <div className="noProducts">
+      <h2>😔 No Products Found</h2>
+      <p>Try searching with another keyword.</p>
+    </div>
+  )}
 
   </div>
 

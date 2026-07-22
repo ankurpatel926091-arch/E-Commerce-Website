@@ -13,6 +13,7 @@ const Cart = () => {
   const navigate = useNavigate();
 
   const token = localStorage.getItem("token");
+  console.log("Token =", token);
 
   const [address, setAddress] = useState("");
 
@@ -82,31 +83,43 @@ const Cart = () => {
 
     };
 
-    try {
+   try {
 
-      const res = await axios.post(
-        `${api_url}/api/order/create-order`,
-        orderData,
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
-      );
-
-      alert(res.data.message);
-
-      setCart([]);
-
-      navigate("/");
-
-    } catch (error) {
-
-      console.log(error);
-
-      alert("Something went wrong");
-
+  const res = await axios.post(
+    `${api_url}/api/order/create-order`,
+    orderData,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     }
+  );
+
+  alert(res.data.message);
+
+  setCart([]);
+
+  navigate("/");
+
+} catch (error) {
+
+  console.log(error);
+
+  if (error.response?.data?.message === "Token Expired") {
+
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    alert("Session Expired! Please Login Again.");
+
+    navigate("/login");
+
+    return;
+  }
+
+  alert(error.response?.data?.message || "Something went wrong");
+
+}
 
   };
 

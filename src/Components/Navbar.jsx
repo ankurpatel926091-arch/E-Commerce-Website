@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
+import { useSearch } from "../Context/SearchContext";
 
 import {
   FaShoppingCart,
@@ -9,6 +10,7 @@ import {
   FaSignOutAlt,
   FaBars,
   FaTimes,
+  FaSearch,
 } from "react-icons/fa";
 
 import "./Navbar.css";
@@ -16,8 +18,11 @@ import "./Navbar.css";
 const Navbar = () => {
   const navigate = useNavigate();
   const { cart } = useCart();
+  const { search, setSearch } = useSearch();
+  console.log(search);
 
   const [menuOpen, setMenuOpen] = useState(false);
+ 
 
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -30,6 +35,9 @@ const Navbar = () => {
   const closeMenu = () => {
     setMenuOpen(false);
   };
+   const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
 
   return (
     <nav className="navbar">
@@ -40,11 +48,29 @@ const Navbar = () => {
         onClick={() => {
           navigate("/");
           closeMenu();
+          const handleSearch = (e) => {
+  setSearch(e.target.value);
+};
         }}
       >
         <FaStore />
         <span>Online Store</span>
       </div>
+      {/* Search Bar */}
+
+<div className="search-container">
+
+  <FaSearch className="search-icon" />
+
+  <input
+  type="text"
+  placeholder="Search products..."
+  className="search-input"
+  value={search}
+  onChange={handleSearch}
+/>
+
+</div>
 
       {/* Mobile Menu Button */}
       <div
@@ -76,7 +102,11 @@ const Navbar = () => {
             onClick={() => {
               navigate("/cart");
               closeMenu();
+              const handleSearch = (e) => {
+  setSearch(e.target.value);
+};
             }}
+            
           >
             <FaShoppingCart />
             <span>Cart</span>
@@ -86,14 +116,10 @@ const Navbar = () => {
             </div>
           </div>
         </li>
+        
 
-        {/* Mobile User */}
-        {user && (
-          <li className="mobile-only user-mobile">
-            <FaUserCircle />
-            <span>{user.name}</span>
-          </li>
-        )}
+        
+        
 
         {/* Mobile Logout */}
         {user ? (
