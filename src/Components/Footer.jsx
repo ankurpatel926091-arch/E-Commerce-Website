@@ -117,9 +117,9 @@ const Footer = () => {
 
       <div className="copyright">
 
-        © 2026 Design And Developed By Ankur Patel Online Store | All Rights Reserved.
-
-      </div>
+<p>
+  © {new Date().getFullYear()} Online Store. Designed & Developed by Ankur Patel. All Rights Reserved.
+</p>      </div>
 
     </footer>
   );

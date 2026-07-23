@@ -1468,3 +1468,28 @@ html{
 .productCard:hover .productImage {
   transform: scale(1.05);
 }
+.imageWrapper{
+    position: relative;
+}
+
+.wishlistBtn{
+    position:absolute;
+    top:12px;
+    right:12px;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:#fff;
+    font-size:22px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.wishlistBtn:hover{
+    transform:scale(1.1);
+}

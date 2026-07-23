@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
 import { useSearch } from "../Context/SearchContext";
+import { useWishlist } from "../Context/WishlistContext";
 
 import {
   FaShoppingCart,
@@ -11,6 +12,7 @@ import {
   FaBars,
   FaTimes,
   FaSearch,
+  FaHeart,
 } from "react-icons/fa";
 
 import "./Navbar.css";
@@ -18,6 +20,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const navigate = useNavigate();
   const { cart } = useCart();
+  const { wishlist } = useWishlist();
   const { search, setSearch } = useSearch();
   
 
@@ -84,16 +87,33 @@ const Navbar = () => {
       <ul className={menuOpen ? "nav-links active" : "nav-links"}>
 
         <li>
-          <a href="#categories" onClick={closeMenu}>
-            Categories
-          </a>
-        </li>
+  <a href="/#categories" onClick={closeMenu}>
+    Categories
+  </a>
+</li>
 
-        <li>
-          <a href="#products" onClick={closeMenu}>
-            Products
-          </a>
-        </li>
+<li>
+  <a href="/#products" onClick={closeMenu}>
+    Products
+  </a>
+</li>
+
+        <li className="mobile-only">
+  <div
+    className="cart"
+    onClick={() => {
+      navigate("/wishlist");
+      closeMenu();
+    }}
+  >
+    <FaHeart />
+    <span>Wishlist</span>
+
+    <div className="badge">
+      {wishlist.length}
+    </div>
+  </div>
+</li>
 
         {/* Mobile Cart */}
         <li className="mobile-only">
@@ -150,6 +170,18 @@ const Navbar = () => {
 
       {/* Desktop Right */}
       <div className="right-section">
+        <div
+  className="cart"
+  onClick={() => navigate("/wishlist")}
+>
+  <FaHeart />
+
+  <span>Wishlist</span>
+
+  <div className="badge">
+    {wishlist.length}
+  </div>
+</div>
 
         <div
           className="cart"

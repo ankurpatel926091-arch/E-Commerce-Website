@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCategory, fetchProduct } from "../Redux/StoreDataSlice";
 import "../App.css";
 import { useCart } from "../Context/CartContext";
+import { useWishlist } from "../Context/WishlistContext";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { useSearch } from "../Context/SearchContext";
+import { toast } from "react-toastify";
 
 
 const Product = () => {
@@ -83,16 +85,31 @@ const Product = () => {
 
 
   const {addToCart} = useCart()
+  const { toggleWishlist, isInWishlist } = useWishlist();
   const handleAddToCart = (item) => {
-    try {
-      addToCart(item)
-      // brief visual confirmation
-      alert(`${item.productName || 'Item'} added to cart`)
-    } catch (err) {
-      console.error('Add to cart error:', err)
-      alert('Unable to add to cart')
-    }
+  try {
+    addToCart(item);
+
+    // Success Toast
+    toast.success(`${item.productName || "Item"} added to cart`);
+  } catch (err) {
+    console.error("Add to cart error:", err);
+
+    // Error Toast
+    toast.error("Unable to add to cart");
   }
+};
+const handleWishlist = (item) => {
+  const alreadyAdded = isInWishlist(item._id);
+
+  toggleWishlist(item);
+
+  if (alreadyAdded) {
+    toast.info(`${item.productName} removed from wishlist`);
+  } else {
+    toast.success(`${item.productName} added to wishlist ❤️`);
+  }
+};
 return (
   <div className="container">
 
@@ -274,17 +291,24 @@ return (
 
         <div className="imageWrapper">
 
-          <img
-            src={getImageUrl(item.images?.[0])}
-            alt={item.productName}
-            className="productImage"
-          />
+  <img
+    src={getImageUrl(item.images?.[0])}
+    alt={item.productName}
+    className="productImage"
+  />
 
-          <span className="productBadge">
-            New
-          </span>
+  <span className="productBadge">
+    New
+  </span>
 
-        </div>
+  <button
+    className="wishlistBtn"
+    onClick={() => handleWishlist(item)}
+  >
+    {isInWishlist(item._id) ? "❤️" : "🤍"}
+  </button>
+
+</div>
 
         {/* Product Details */}
 
